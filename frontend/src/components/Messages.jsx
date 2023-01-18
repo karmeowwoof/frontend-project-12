@@ -29,7 +29,7 @@ const Messages = () => {
   const currentChannel = useSelector(getCurrentChannel);
 
   const currentMessages = useSelector(getAllMessages).filter(
-    (m) => m.channelId === currentChannelId,
+    (m) => m.channelId === currentChannelId
   );
 
   useEffect(() => {
@@ -43,10 +43,7 @@ const Messages = () => {
   }, [currentMessages]);
 
   const validationSchema = yup.object().shape({
-    body: yup
-      .string()
-      .trim()
-      .required(),
+    body: yup.string().trim().required(),
   });
 
   const formik = useFormik({
@@ -69,50 +66,54 @@ const Messages = () => {
     },
   });
 
-  const messagesRender = () => currentMessages.map((m) => <Message key={m.id} content={m} />);
+  const messagesRender = () =>
+    currentMessages.map((m) => <Message key={m.id} content={m} />);
 
   return (
-    <div className="col p-0 h-100">
-      <div className="d-flex flex-column h-100">
-    <div className="bg-light mb-4 p-3 shadow-sm small">
-    <p className="m-0">
-    <b>{ `${currentChannel?.name}`}</b>
-    </p>
-  <span className="text-muted">
-  {t('messages.counter.key', { count: currentMessages.length })}
-</span>
-</div>
-  <div id="messages-box" className="chat-messages overflow-auto px-5 ">
-  {messagesRender()}
-  <span ref={lastMessageRef} />
-</div>
-  <div className="mt-auto px-5 py-3">
-  <Form onSubmit={formik.handleSubmit} className="py-1 border rounded-2">
+    <div className='col p-0 h-100'>
+      <div className='d-flex flex-column h-100'>
+        <div className='bg-light mb-4 p-3 shadow-sm small'>
+          <p className='m-0'>
+            <b>{`${currentChannel?.name}`}</b>
+          </p>
+          <span className='text-muted'>
+            {t('messages.counter.key', { count: currentMessages.length })}
+          </span>
+        </div>
+        <div id='messages-box' className='chat-messages overflow-auto px-5 '>
+          {messagesRender()}
+          <span ref={lastMessageRef} />
+        </div>
+        <div className='mt-auto px-5 py-3'>
+          <Form
+            onSubmit={formik.handleSubmit}
+            className='py-1 border rounded-2'
+          >
             <InputGroup>
               <Form.Control
                 onChange={formik.handleChange}
-                name="body"
+                name='body'
                 aria-label={t('messages.new')}
                 placeholder={t('messages.input')}
-                className="border-0 p-0 ps-2"
+                className='border-0 p-0 ps-2'
                 value={formik.values.body}
                 ref={inputRef}
                 disabled={formik.isSubmitting}
               />
               <Button
-                type="submit"
-                variant="link"
-                className="btn-group-vertical"
+                type='submit'
+                variant='link'
+                className='btn-group-vertical'
                 disabled={formik.errors.body || !formik.values.body}
               >
                 <ArrowRightSquare />
-                <span className="visually-hidden">{t('messages.send')}</span>
+                <span className='visually-hidden'>{t('messages.send')}</span>
               </Button>
             </InputGroup>
           </Form>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
   );
 };
 
