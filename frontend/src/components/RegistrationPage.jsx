@@ -38,7 +38,7 @@ const RegistrationPage = () => {
     confirmPassword: yup
       .string()
       .required(t('signup.required'))
-      .oneOf([yup.ref('password')], t('signup.confirm')),
+      .oneOf([yup.ref('password')], t('signup.mustMatch')),
   });
 
   const formik = useFormik({
