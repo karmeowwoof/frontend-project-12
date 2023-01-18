@@ -30,7 +30,7 @@ const Rename = () => {
       .max(20, t('modalRename.channelConstraints'))
       .notOneOf(
         channels.map((channel) => channel.name),
-        t('modalRename.unique')
+        t('modalRename.unique'),
       )
       .required(t('modalRename.required')),
   });
