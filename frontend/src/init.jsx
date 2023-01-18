@@ -35,12 +35,12 @@ const init = async (socket) => {
   leoProfanity.add(leoProfanity.getDictionary('ru'));
 
   return (
-<RollbarProvider config={rollbarConfig}>
-<ErrorBoundary>
-<StoreProvider store={store}>
-<ApiProvider mainAPI={mainAPI}>
-<I18nextProvider i18n={i18n}>
-<App />
+    <RollbarProvider config={rollbarConfig}>
+  <ErrorBoundary>
+  <StoreProvider store={store}>
+  <ApiProvider mainAPI={mainAPI}>
+  <I18nextProvider i18n={i18n}>
+  <App />
 </I18nextProvider>
 </ApiProvider>
 </StoreProvider>

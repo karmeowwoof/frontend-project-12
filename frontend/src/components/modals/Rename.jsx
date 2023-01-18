@@ -71,18 +71,18 @@ const Rename = () => {
             {formik.errors.name}
           </Form.Control.Feedback>
           <div className="d-flex justify-content-end">
-        <Button
+            <Button
           className="me-2"
           variant="secondary"
           onClick={() => dispatch(modalsActions.hideModal())}
         >
           {t('modalRename.cancel')}
         </Button>
-        <Button type="submit" variant="primary">{t('modalRename.send')}</Button>
-      </div>
-    </Form>
-  </Modal.Body>
-</Modal>
+            <Button type="submit" variant="primary">{t('modalRename.send')}</Button>
+          </div>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 };
 export default Rename;

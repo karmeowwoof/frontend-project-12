@@ -9,12 +9,12 @@ const Header = () => {
   const { t } = useTranslation();
 
   return (
-<Navbar className="shadow-sm navbar-expand-lg navbar-light bg-white">
-<Container>
-<Navbar.Brand as={Link} to="/">Hexlet Chat</Navbar.Brand>
-{auth.user ? (
-<Link to="/" onClick={auth.logOut}>
-{t('logout')}
+    <Navbar className="shadow-sm navbar-expand-lg navbar-light bg-white">
+  <Container>
+  <Navbar.Brand as={Link} to="/">Hexlet Chat</Navbar.Brand>
+  {auth.user ? (
+  <Link to="/" onClick={auth.logOut}>
+  {t('logout')}
 </Link>
 ) : null}
 </Container>

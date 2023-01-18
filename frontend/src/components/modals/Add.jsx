@@ -65,24 +65,24 @@ const Add = () => {
             name="name"
             value={formik.values.name}
             isInvalid={formik.errors.name && formik.touched.name}
-            />
-            <Form.Label htmlFor="name" className="visually-hidden">{t('modalAdd.name')}</Form.Label>
-            <Form.Control.Feedback type="invalid">
-            {formik.errors.name}
+          />
+          <Form.Label htmlFor="name" className="visually-hidden">{t('modalAdd.name')}</Form.Label>
+          <Form.Control.Feedback type="invalid">
+              {formik.errors.name}
             </Form.Control.Feedback>
-            <div className="d-flex justify-content-end">
-            <Button
-            className="me-2"
-            variant="secondary"
-            onClick={() => dispatch(modalsActions.hideModal())}
+          <div className="d-flex justify-content-end">
+              <Button
+              className="me-2"
+              variant="secondary"
+              onClick={() => dispatch(modalsActions.hideModal())}
             >
-            {t('modalAdd.cancel')}
+              {t('modalAdd.cancel')}
             </Button>
-            <Button type="submit" variant="primary">{t('modalAdd.send')}</Button>
+              <Button type="submit" variant="primary">{t('modalAdd.send')}</Button>
             </div>
-            </Form>
-            </Modal.Body>
-            </Modal>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 };
 export default Add;

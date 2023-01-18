@@ -5,9 +5,9 @@ import React from 'react';
 import { ApiContext } from './index.js';
 
 const ApiProvider = ({ mainAPI, children }) => (
-    <ApiContext.Provider value={mainAPI}>
+  <ApiContext.Provider value={mainAPI}>
       {children}
-    </ApiContext.Provider>
+  </ApiContext.Provider>
 );
 
 export default ApiProvider;

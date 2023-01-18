@@ -72,22 +72,22 @@ const Messages = () => {
   const messagesRender = () => currentMessages.map((m) => <Message key={m.id} content={m} />);
 
   return (
-<div className="col p-0 h-100">
-<div className="d-flex flex-column h-100">
-<div className="bg-light mb-4 p-3 shadow-sm small">
-<p className="m-0">
-<b>{ `${currentChannel?.name}`}</b>
+    <div className="col p-0 h-100">
+  <div className="d-flex flex-column h-100">
+  <div className="bg-light mb-4 p-3 shadow-sm small">
+  <p className="m-0">
+  <b>{ `${currentChannel?.name}`}</b>
 </p>
-<span className="text-muted">
-{t('messages.counter.key', { count: currentMessages.length })}
+  <span className="text-muted">
+  {t('messages.counter.key', { count: currentMessages.length })}
 </span>
 </div>
-<div id="messages-box" className="chat-messages overflow-auto px-5 ">
-{messagesRender()}
-<span ref={lastMessageRef} />
+  <div id="messages-box" className="chat-messages overflow-auto px-5 ">
+  {messagesRender()}
+  <span ref={lastMessageRef} />
 </div>
-<div className="mt-auto px-5 py-3">
-          <Form onSubmit={formik.handleSubmit} className="py-1 border rounded-2">
+  <div className="mt-auto px-5 py-3">
+  <Form onSubmit={formik.handleSubmit} className="py-1 border rounded-2">
             <InputGroup>
               <Form.Control
                 onChange={formik.handleChange}
@@ -110,9 +110,9 @@ const Messages = () => {
               </Button>
             </InputGroup>
           </Form>
-        </div>
-      </div>
-    </div>
+</div>
+</div>
+</div>
   );
 };
 

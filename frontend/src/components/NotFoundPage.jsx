@@ -7,12 +7,12 @@ const NotFoundPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div className='d-flex flex-column align-items-center'>
-      <img src={notFoundPic} alt={t('notFound.alt')} className='img-fluid h-25'/>
-      <h1 className='text-center text-muted mt-3 mb-0'>{t('notFound.header')}</h1>
+    <div className="d-flex flex-column align-items-center">
+      <img src={notFoundPic} alt={t('notFound.alt')} className="img-fluid h-25" />
+      <h1 className="text-center text-muted mt-3 mb-0">{t('notFound.header')}</h1>
       <p className='text-center text-muted'>
         {t('notFound.message')}
-        <a href='/' className='text-muted'>{t('notFound.linkText')}</a>
+        <a href='/' className="text-muted">{t('notFound.linkText')}</a>
       </p>
     </div>
   );

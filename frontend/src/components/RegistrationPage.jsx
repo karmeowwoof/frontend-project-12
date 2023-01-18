@@ -95,19 +95,19 @@ const RegistrationPage = () => {
                     onBlur={formik.handleBlur}
                     value={formik.values.username}
                     placeholder={t('signup.usernameConstraints')}
-                    name='username'
-                    id='username'
-                    autoComplete='username'
+                    name="username"
+                    id="username"
+                    autoComplete="username"
                     isInvalid={
                       (formik.errors.username && formik.touched.username) || registrationFailed
                     }
                     required
                     ref={inputRef}
                   />
-                  <Form.Label htmlFor='username'>
+                  <Form.Label htmlFor="username">
                     {t('signup.username')}
                   </Form.Label>
-                  <Form.Control.Feedback type='invalid'>
+                  <Form.Control.Feedback type="invalid">
                     {formik.errors.username || t('signup.alreadyExists')}
                   </Form.Control.Feedback>
                 </Form.Group>
