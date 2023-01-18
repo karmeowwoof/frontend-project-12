@@ -29,7 +29,7 @@ const Messages = () => {
   const currentChannel = useSelector(getCurrentChannel);
 
   const currentMessages = useSelector(getAllMessages).filter(
-    (m) => m.channelId === currentChannelId
+    (m) => m.channelId === currentChannelId,
   );
 
   useEffect(() => {
@@ -66,8 +66,7 @@ const Messages = () => {
     },
   });
 
-  const messagesRender = () =>
-    currentMessages.map((m) => <Message key={m.id} content={m} />);
+  const messagesRender = () => currentMessages.map((m) => <Message key={m.id} content={m} />);
 
   return (
     <div className="col p-0 h-100">
