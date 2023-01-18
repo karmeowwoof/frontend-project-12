@@ -16,7 +16,7 @@ const Header = () => {
     <Link to="/" onClick={auth.logOut}>
     {t('logout')}
     </Link>
-  ) : null}
+    ) : null}
     </Container>
     </Navbar>
   );
