@@ -1,0 +1,29 @@
+{
+  "name": "@hexlet/code",
+  "version": "0.0.1",
+  "description": "Create light version of Slack",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --prefix frontend",
+    "start": "start-server -s ./frontend/build",
+    "postinstall": "cd frontend && npm ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sverxsro4nik/frontend-project-lvl4.git"
+  },
+  "author": "Sverxsro4nik@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sverxsro4nik/frontend-project-lvl4/issues"
+  },
+  "homepage": "https://github.com/Sverxsro4nik/frontend-project-lvl4#readme",
+  "dependencies": {
+    "@hexlet/chat-server": "^1.1.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.31.1"
+  }
+}

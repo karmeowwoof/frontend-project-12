@@ -1,5 +1,8 @@
+install:
+	make -C frontend install
+
 start-frontend:
-	make -C frontend start
+	make -C frontend start-frontend
 
 start-backend:
 	npx start-server
@@ -7,5 +10,5 @@ start-backend:
 start:
 	make start-backend & make start-frontend
 
-lint:
-	npx eslint 
+deploy:
+	git push heroku main

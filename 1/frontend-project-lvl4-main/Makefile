@@ -5,7 +5,7 @@ start-backend:
 	npx start-server
 
 start:
-	make start-backend & make start-frontend
+	make start-frontend & make start-backend
 
-lint:
-	npx eslint 
+deploy:
+	git push heroku main

@@ -7,5 +7,8 @@ start-backend:
 start:
 	make start-backend & make start-frontend
 
+deploy:
+	git push heroku main
+
 lint:
-	npx eslint 
+	npx eslint --ext js,jsx --fix --no-eslintrc --config .eslintrc.yml .
