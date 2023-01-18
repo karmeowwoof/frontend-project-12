@@ -34,7 +34,7 @@ const Add = () => {
       .max(20, t('modalAdd.channelConstraints'))
       .notOneOf(
         channels.map((channel) => channel.name),
-        t('modalAdd.unique')
+        t('modalAdd.unique'),
       )
       .required(t('modalAdd.required')),
   });

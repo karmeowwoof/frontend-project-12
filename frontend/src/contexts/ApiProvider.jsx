@@ -6,7 +6,7 @@ import { ApiContext } from './index.js';
 
 const ApiProvider = ({ mainAPI, children }) => (
   <ApiContext.Provider value={mainAPI}>
-      {children}
+    {children}
   </ApiContext.Provider>
 );
 

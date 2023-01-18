@@ -28,7 +28,10 @@ const Rename = () => {
       .trim()
       .min(3, t('modalRename.channelConstraints'))
       .max(20, t('modalRename.channelConstraints'))
-      .notOneOf(channels.map((channel) => channel.name), t('modalRename.unique'))
+      .notOneOf(
+        channels.map((channel) => channel.name),
+        t('modalRename.unique')
+      )
       .required(t('modalRename.required')),
   });
 
@@ -51,7 +54,10 @@ const Rename = () => {
 
   return (
     <Modal show centered>
-      <Modal.Header closeButton onHide={() => dispatch(modalsActions.hideModal())}>
+      <Modal.Header
+        closeButton
+        onHide={() => dispatch(modalsActions.hideModal())}
+      >
         <Modal.Title>{t('modalRename.renameChannel')}</Modal.Title>
       </Modal.Header>
 
@@ -66,19 +72,23 @@ const Rename = () => {
             value={formik.values.name}
             isInvalid={formik.errors.name && formik.touched.name}
           />
-          <Form.Label htmlFor="name" className="visually-hidden">{t('modalRename.name')}</Form.Label>
+          <Form.Label htmlFor="name" className="visually-hidden">
+            {t('modalRename.name')}
+          </Form.Label>
           <Form.Control.Feedback type="invalid">
             {formik.errors.name}
           </Form.Control.Feedback>
           <div className="d-flex justify-content-end">
             <Button
-          className="me-2"
-          variant="secondary"
-          onClick={() => dispatch(modalsActions.hideModal())}
-        >
-          {t('modalRename.cancel')}
-        </Button>
-            <Button type="submit" variant="primary">{t('modalRename.send')}</Button>
+              className="me-2"
+              variant="secondary"
+              onClick={() => dispatch(modalsActions.hideModal())}
+            >
+              {t('modalRename.cancel')}
+            </Button>
+            <Button type="submit" variant="primary">
+              {t('modalRename.send')}
+            </Button>
           </div>
         </Form>
       </Modal.Body>
