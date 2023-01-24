@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-import { useChat } from '../../hooks';
+import { ApiContext } from '../../contexts/index.js';
 
 import { getItemId } from '../../slices/selectors';
 
@@ -12,7 +12,7 @@ import { actions as modalsActions } from '../../slices/modalsSlice';
 
 const Remove = () => {
   const dispatch = useDispatch();
-  const chat = useChat();
+  const chat = useContext(ApiContext);
   const { t } = useTranslation();
 
   const itemId = useSelector(getItemId);

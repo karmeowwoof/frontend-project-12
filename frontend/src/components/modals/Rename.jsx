@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import leoProfanity from 'leo-profanity';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-import { useChat } from '../../hooks';
+import { ApiContext } from '../../contexts/index.js';
 
 import { getItemId, getAllChannels } from '../../slices/selectors';
 import { actions as modalsActions } from '../../slices/modalsSlice';
@@ -15,7 +15,7 @@ import { actions as modalsActions } from '../../slices/modalsSlice';
 const Rename = () => {
   const dispatch = useDispatch();
   const inputRef = useRef();
-  const chat = useChat();
+  const chat = useContext(ApiContext);
   const { t } = useTranslation();
 
   const itemId = useSelector(getItemId);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -15,10 +15,10 @@ import MainPage from './MainPage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 
 import AuthProvider from '../contexts/AuthProvider.jsx';
-import { useAuth } from '../hooks';
+import { AuthContext } from '../contexts/index.js';
 
 const PrivateOutlet = ({ toMainPage = false }) => {
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
 
   if (toMainPage) {
     return auth.user ? <Outlet /> : <Navigate to="/login" />;

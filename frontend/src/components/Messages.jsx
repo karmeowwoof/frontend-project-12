@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import * as yup from 'yup';
 import leoProfanity from 'leo-profanity';
 import { useFormik } from 'formik';
@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { Form, InputGroup, Button } from 'react-bootstrap';
 import { ArrowRightSquare } from 'react-bootstrap-icons';
 
-import { useAuth, useChat } from '../hooks/index.js';
+import { AuthContext, ApiContext } from '../contexts/index.js';
 
 import {
   getCurrentChannelId,
@@ -21,8 +21,8 @@ import Message from './Message.jsx';
 const Messages = () => {
   const inputRef = useRef();
   const lastMessageRef = useRef();
-  const auth = useAuth();
-  const chat = useChat();
+  const auth = useContext(AuthContext);
+  const chat = useContext(ApiContext);
   const { t } = useTranslation();
 
   const currentChannelId = useSelector(getCurrentChannelId);

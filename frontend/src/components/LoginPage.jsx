@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect, useRef, useState, useContext,
+} from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -7,14 +9,14 @@ import { Button, Form } from 'react-bootstrap';
 import * as yup from 'yup';
 import { toast } from 'react-toastify';
 
-import { useAuth } from '../hooks/index.js';
+import { AuthContext } from '../contexts/index.js';
 import routes from '../routes.js';
 
 import image from '../assets/avatar.jpg';
 
 const LoginPage = () => {
   const [authFailed, setAuthFailed] = useState(false);
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
   const inputRef = useRef();
   const navigate = useNavigate();
   const { t } = useTranslation();
