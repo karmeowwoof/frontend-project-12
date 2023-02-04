@@ -12,7 +12,7 @@ const Header = () => {
     <Navbar className="shadow-sm navbar-expand-lg navbar-light bg-white">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Hexlet Chat
+        {t('title')}
         </Navbar.Brand>
         {auth.user ? (
           <Link to="/" onClick={auth.logOut}>

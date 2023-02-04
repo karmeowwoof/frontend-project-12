@@ -26,14 +26,8 @@ const LoginPage = () => {
   }, []);
 
   const validationSchema = yup.object().shape({
-    username: yup
-      .string()
-      .trim()
-      .required(t('login.required')),
-    password: yup
-      .string()
-      .trim()
-      .required(t('login.required')),
+    username: yup.string().trim().required(t('login.required')),
+    password: yup.string().trim().required(t('login.required')),
   });
 
   const formik = useFormik({
@@ -49,17 +43,11 @@ const LoginPage = () => {
         auth.logIn(response.data);
         navigate('/');
       } catch (err) {
-        console.log(err);
-        if (err.isAxiosError) {
-          if (err.response.status === 401) {
-            setAuthFailed(true);
-            inputRef.current.select();
-          } else {
-            toast.error(t('errors.network'));
-          }
+        if (err.response.status === 401) {
+          setAuthFailed(true);
+          inputRef.current.select();
         } else {
-          toast.error(t('errors.unknown'));
-          throw err;
+          toast.error(t('errors.network'));
         }
       }
     },
@@ -78,7 +66,10 @@ const LoginPage = () => {
                   alt={t('login.header')}
                 />
               </div>
-              <Form onSubmit={formik.handleSubmit} className="col-12 col-md-6 mt-3 mt-mb-0">
+              <Form
+                onSubmit={formik.handleSubmit}
+                className="col-12 col-md-6 mt-3 mt-mb-0"
+              >
                 <h1 className="text-center mb-4">{t('login.header')}</h1>
                 <Form.Group className="form-floating mb-3">
                   <Form.Control
@@ -92,7 +83,9 @@ const LoginPage = () => {
                     ref={inputRef}
                     placeholder={t('login.username')}
                   />
-                  <Form.Label htmlFor="username">{t('login.username')}</Form.Label>
+                  <Form.Label htmlFor="username">
+                    {t('login.username')}
+                  </Form.Label>
                 </Form.Group>
                 <Form.Group className="form-floating mb-4">
                   <Form.Control
@@ -106,18 +99,25 @@ const LoginPage = () => {
                     required
                     placeholder={t('login.password')}
                   />
-                  <Form.Label htmlFor="password">{t('login.password')}</Form.Label>
+                  <Form.Label htmlFor="password">
+                    {t('login.password')}
+                  </Form.Label>
                   <Form.Control.Feedback type="invalid">
                     {t('login.authFailed')}
                   </Form.Control.Feedback>
                 </Form.Group>
-                <Button type="submit" variant="outline-primary" className="w-100 mb-3">{t('login.submit')}</Button>
+                <Button
+                  type="submit"
+                  variant="outline-primary"
+                  className="w-100 mb-3"
+                >
+                  {t('login.submit')}
+                </Button>
               </Form>
             </div>
             <div className="card-footer p-4">
               <div className="text-center">
-                <span>{t('login.newToChat')}</span>
-                {' '}
+                <span>{t('login.newToChat')}</span>{' '}
                 <a href="/signup">{t('login.signup')}</a>
               </div>
             </div>

@@ -66,7 +66,7 @@ const Messages = () => {
     },
   });
 
-  const messagesRender = () => currentMessages.map((m) => <Message key={m.id} content={m} />);
+  const generateMessage = () => currentMessages.map((m) => <Message key={m.id} content={m} />);
 
   return (
     <div className="col p-0 h-100">
@@ -80,7 +80,7 @@ const Messages = () => {
           </span>
         </div>
         <div id="messages-box" className="chat-messages overflow-auto px-5 ">
-          {messagesRender()}
+          {generateMessage()}
           <span ref={lastMessageRef} />
         </div>
         <div className="mt-auto px-5 py-3">

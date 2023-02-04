@@ -60,17 +60,11 @@ const RegistrationPage = () => {
         auth.logIn(response.data);
         navigate('/');
       } catch (err) {
-        console.log(err);
-        if (err.isAxiosError) {
-          if (err.response.status === 409) {
-            setRegistrationFailed(true);
-            inputRef.current.select();
-          } else {
-            toast.error(t('errors.network'));
-          }
+        if (err.response.status === 409) {
+          setRegistrationFailed(true);
+          inputRef.current.select();
         } else {
-          toast.error(t('errors.unknown'));
-          throw err;
+          toast.error(t('errors.network'));
         }
       }
     },
