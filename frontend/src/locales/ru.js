@@ -78,7 +78,7 @@ const ru = {
       message: 'Но вы можете перейти ',
       linkText: 'на главную страницу',
     },
-    title: 'Хекслет Чат',
+    title: 'Hexlet Chat',
     errors: {
       network: 'Ошибка соединения',
       unknown: 'Неизвестная ошибка',
