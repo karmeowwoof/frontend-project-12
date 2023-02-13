@@ -4,6 +4,9 @@ const routes = {
   loginPath: () => [apiPath, 'login'].join('/'),
   signupPath: () => [apiPath, 'signup'].join('/'),
   dataPath: () => [apiPath, 'data'].join('/'),
+  mainPagePath: () => '/',
+  loginPagePath: () => '/login',
+  signupPagePath: () => '/signup',
 };
 
 export default routes;

@@ -3,11 +3,9 @@ import { actions as messagesActions } from '../slices/messagesSlice.js';
 import { actions as channelsActions } from '../slices/channelsSlice.js';
 
 const createAPI = (socket) => {
-  const addNewMessage = (message) => {
+  const addNewMessage = (message, callback) => {
     socket.emit('newMessage', message, (response) => {
-      if (response.status !== 'ok') {
-        console.log(response.status);
-      }
+      if (callback) callback(response);
     });
   };
 
@@ -15,14 +13,9 @@ const createAPI = (socket) => {
     store.dispatch(messagesActions.addMessage(payload));
   });
 
-  const addNewChannel = (channel) => {
+  const addNewChannel = (channel, callback) => {
     socket.emit('newChannel', channel, (response) => {
-      if (response.status === 'ok') {
-        const { id } = response.data;
-        store.dispatch(channelsActions.setCurrentChannelId(id));
-      } else {
-        console.log(response.status);
-      }
+      if (callback) callback(response);
     });
   };
 
@@ -30,11 +23,9 @@ const createAPI = (socket) => {
     store.dispatch(channelsActions.addChannel(payload));
   });
 
-  const removeChannel = (id) => {
+  const removeChannel = (id, callback) => {
     socket.emit('removeChannel', { id }, (response) => {
-      if (response.status !== 'ok') {
-        console.log(response.status);
-      }
+      if (callback) callback(response);
     });
   };
 
@@ -42,11 +33,9 @@ const createAPI = (socket) => {
     store.dispatch(channelsActions.removeChannel(payload));
   });
 
-  const renameChannel = (renamedChannel) => {
+  const renameChannel = (renamedChannel, callback) => {
     socket.emit('renameChannel', renamedChannel, (response) => {
-      if (response.status !== 'ok') {
-        console.log(response.status);
-      }
+      if (callback) callback(response);
     });
   };
 

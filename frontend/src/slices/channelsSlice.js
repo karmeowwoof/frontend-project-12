@@ -9,12 +9,8 @@ import routes from '../routes.js';
 const fetchData = createAsyncThunk(
   'fetchData',
   async () => {
-    try {
-      const { data } = await axios.get(routes.dataPath(), { headers: getAuthHeader() });
-      return data;
-    } catch (err) {
-      throw new Error(err);
-    }
+    const { data } = await axios.get(routes.dataPath(), { headers: getAuthHeader() });
+    return data;
   },
 );
 
